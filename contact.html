@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | Nikhil Shinde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  color:white;
+  overflow:hidden;
+}
+
+/* 3D BACKGROUND */
+#bg-3d{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(circle at center, #1b1b4f, #05051f);
+}
+
+/* FULL SCREEN FORM */
+.contact{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+}
+
+.contact img{
+  width:140px;
+  margin-bottom:20px;
+}
+
+.contact h1{
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+form{
+  width:100%;
+  max-width:600px;
+}
+
+input, textarea{
+  width:100%;
+  padding:15px;
+  margin:12px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:16px;
+}
+
+textarea{
+  resize:none;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  background:#1e2167;
+  color:white;
+  border:1px solid #8f58c2;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#8f58c2;
+}
+
+/* THANK YOU SCREEN */
+.thankyou{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:rgba(6,6,56,0.95);
+  animation:fade 1s ease forwards;
+}
+
+.thankyou h1{
+  font-size:3rem;
+  animation:glow 1.5s infinite alternate;
+}
+
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 10px #8f58c2;}
+  to{text-shadow:0 0 30px #8f58c2;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg-3d"></div>
+
+<!-- CONTACT -->
+<div class="contact" id="contactBox">
+  <img src="bg.png" alt="contact">
+  <h1>Contact Me</h1>
+
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- THANK YOU -->
+<div class="thankyou" id="thankYou">
+  <h1>Thank You for Visiting ✨</h1>
+  <p>I will contact you soon</p>
+</div>
+
+<script>
+/* SUBMIT */
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById("contactBox").style.display="none";
+  document.getElementById("thankYou").style.display="flex";
+}
+</script>
+
+</body>
+</html>
